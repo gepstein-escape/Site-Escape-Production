@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -76,7 +75,7 @@
       font-size: 8px; letter-spacing: 0.3em;
       color: var(--text-muted);
     }
-    .mir { display: inline-block; transform: scaleX(-1); margin-left: -0.05em; letter-spacing: 0; }
+    .mir { display: inline-block; transform: scaleX(-1); margin-left: 0.06em; letter-spacing: 0; }
     .nav-links { display: flex; gap: 40px; list-style: none; }
     .nav-links button {
       background: none; border: none;
@@ -126,12 +125,6 @@
       position: relative; z-index: 10;
       display: flex; flex-direction: column; align-items: center;
     }
-    .hero-letters {
-      display: flex; justify-content: center; align-items: baseline;
-      font-family: var(--ff-display); font-weight: 900;
-      font-size: clamp(68px, 11vw, 148px);
-      letter-spacing: 0.14em; line-height: 1;
-    }
     .hero-letter {
       display: inline-block;
       opacity: 0; transform: translateY(18px);
@@ -139,21 +132,8 @@
                   transform 0.48s cubic-bezier(.25,.46,.45,.94);
     }
     .hero-letter.show { opacity: 1; transform: translateY(0); }
-    .hero-letter.mirror-letter {
-      transform: scaleX(-1) translateY(18px);
-    }
-    .hero-letter.mirror-letter.show {
-      transform: scaleX(-1) translateY(0);
-    }
-    .hero-prod {
-      font-family: var(--ff-display); font-weight: 300;
-      font-size: clamp(10px, 1.3vw, 17px);
-      letter-spacing: 0.7em; text-transform: uppercase;
-      color: rgba(240,237,232,0.5);
-      margin-top: 14px;
-      opacity: 0; transition: opacity 0.9s ease;
-    }
-    .hero-prod.show { opacity: 1; }
+    .hero-letter.mirror-letter { transform: scaleX(-1) translateY(18px); }
+    .hero-letter.mirror-letter.show { transform: scaleX(-1) translateY(0); }
 
     .hero-scroll {
       position: absolute; bottom: 44px; left: 50%;
@@ -196,7 +176,6 @@
     /* ── PROJECTS ── */
     .proj-header {
       display: flex; align-items: flex-end;
-      justify-content: space-between;
       border-bottom: 1px solid var(--border);
       padding-bottom: 0; margin-bottom: 0;
     }
@@ -210,16 +189,7 @@
       transition: color 0.2s, border-color 0.2s;
     }
     .proj-tab.active { color: var(--text); border-bottom-color: var(--accent); }
-    .layout-toggle { display: flex; gap: 8px; padding-bottom: 14px; }
-    .layout-btn {
-      background: none; border: 1px solid var(--text-dim);
-      color: var(--text-muted); font-family: var(--ff-mono);
-      font-size: 8px; letter-spacing: 0.18em; padding: 5px 12px;
-      cursor: pointer; transition: all 0.2s;
-    }
-    .layout-btn.active { border-color: #3a3530; color: var(--text); }
 
-    /* Project list */
     .proj-list-item {
       display: grid; grid-template-columns: 52px 1fr auto;
       align-items: center; gap: 28px;
@@ -241,52 +211,14 @@
     }
     .proj-list-meta {
       text-align: right; font-family: var(--ff-mono);
-      font-size: 9px; letter-spacing: 0.15em; color: var(--text-muted);
+      font-size: 11px; letter-spacing: 0.12em; color: rgba(240,237,232,0.55);
       line-height: 2;
     }
     .proj-status {
       display: inline-block;
-      font-family: var(--ff-mono); font-size: 8px;
+      font-family: var(--ff-mono); font-size: 9px;
       letter-spacing: 0.15em; padding: 3px 8px;
-      border: 1px solid var(--border); color: var(--text-muted);
-    }
-
-    /* Project grid */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2px; margin-top: 2px;
-    }
-    .proj-card {
-      aspect-ratio: 16/10; position: relative;
-      overflow: hidden; cursor: pointer;
-      background: var(--surface);
-    }
-    .proj-card-bg {
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        -45deg,
-        #111 0px, #111 1px,
-        #0c0c0c 1px, #0c0c0c 14px
-      );
-      transition: transform 0.7s cubic-bezier(.25,.46,.45,.94);
-    }
-    .proj-card:hover .proj-card-bg { transform: scale(1.06); }
-    .proj-card-overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(8,8,8,0.92) 0%, transparent 55%);
-    }
-    .proj-card-body {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: 22px 24px;
-    }
-    .proj-card-type {
-      font-family: var(--ff-mono); font-size: 8px;
-      letter-spacing: 0.25em; color: var(--accent); margin-bottom: 6px;
-    }
-    .proj-card-title {
-      font-family: var(--ff-display); font-weight: 700;
-      font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase;
+      border: 1px solid #2a2825; color: rgba(240,237,232,0.45);
     }
 
     /* ── ABOUT ── */
@@ -300,7 +232,6 @@
       letter-spacing: 0.04em; text-transform: uppercase;
       line-height: 0.88;
     }
-    .about-big .accent-line { color: var(--accent); }
     .about-founder-tag {
       font-family: var(--ff-mono); font-size: 9px;
       letter-spacing: 0.3em; color: var(--accent);
@@ -318,17 +249,18 @@
       text-transform: uppercase; margin-bottom: 24px;
     }
     .credit-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: 13px 0; border-bottom: 1px solid var(--border);
-    }
-    .credit-works {
-      font-family: var(--ff-mono); font-size: 9px;
-      letter-spacing: 0.12em; color: var(--text-muted);
-      text-align: right;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: start; gap: 28px;
+      padding: 20px 0; border-bottom: 1px solid var(--border);
     }
     .credit-studio {
       font-size: 15px; color: var(--text);
-      font-weight: 500;
+      font-weight: 500; line-height: 1.55;
+    }
+    .credit-works {
+      font-family: var(--ff-mono); font-size: 11px;
+      letter-spacing: 0.08em; color: rgba(240,237,232,0.52);
+      text-align: right; line-height: 1.75;
     }
 
     /* ── CONTACT ── */
@@ -358,11 +290,13 @@
     .form-group { margin-bottom: 34px; }
     .form-label {
       display: block; font-family: var(--ff-mono);
-      font-size: 9px; letter-spacing: 0.28em;
-      color: var(--text-muted); text-transform: uppercase;
+      font-size: 10px; letter-spacing: 0.28em;
+      color: rgba(240,237,232,0.65); text-transform: uppercase;
       margin-bottom: 10px;
+      transition: color 0.25s;
     }
-    .form-input, .form-textarea, .form-select {
+    .form-group:focus-within .form-label { color: var(--accent); }
+    .form-input, .form-textarea {
       width: 100%; background: transparent;
       border: none; border-bottom: 1px solid var(--border);
       color: var(--text); font-family: var(--ff-body);
@@ -370,12 +304,19 @@
       padding: 10px 0; outline: none;
       transition: border-color 0.25s;
     }
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      border-bottom-color: var(--accent);
+    .form-input:focus, .form-textarea:focus { border-bottom-color: transparent; }
+    .form-textarea { resize: none; height: 140px; }
+
+    /* Ligne animée sous les champs */
+    .form-group { position: relative; }
+    .form-group::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.4s cubic-bezier(.25,.46,.45,.94);
     }
-    .form-textarea { resize: none; height: 96px; }
-    .form-select { appearance: none; cursor: pointer; }
-    .form-select option { background: #111; }
+    .form-group:focus-within::after { width: 100%; }
 
     .submit-btn {
       display: inline-flex; align-items: center; gap: 18px;
@@ -389,9 +330,7 @@
     .submit-arrow { transition: transform 0.3s; }
     .submit-btn:hover .submit-arrow { transform: translateX(6px); }
 
-    .form-success {
-      padding: 70px 0; text-align: center;
-    }
+    .form-success { padding: 70px 0; text-align: center; }
     .success-mark {
       font-family: var(--ff-display); font-size: 56px;
       color: var(--accent); line-height: 1; margin-bottom: 22px;
@@ -411,19 +350,31 @@
       font-family: var(--ff-mono); font-size: 9px;
       letter-spacing: 0.2em; color: var(--text-muted);
     }
-    footer .footer-e { color: var(--text-dim); }
+    .footer-mid {
+      color: #383330 !important;
+    }
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
-      nav { padding: 22px 24px; }
-      .nav-links { gap: 22px; }
-      .nav-links button { font-size: 9px; }
+      nav { padding: 18px 20px; }
+      .nav-logo-name { font-size: 10px; letter-spacing: 0.22em; }
+      .nav-logo-sub { display: none; }
+      .nav-links { gap: 16px; }
+      .nav-links button { font-size: 8px; letter-spacing: 0.14em; }
       .section { padding: 80px 24px; }
       .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .proj-list-item { grid-template-columns: 36px 1fr; }
       .proj-list-meta { display: none; }
+      .credit-row { grid-template-columns: 1fr; gap: 6px; }
+      .credit-works { text-align: left; }
       footer { flex-direction: column; gap: 10px; text-align: center; padding: 28px 24px; }
+      .footer-mid { display: none; }
       .e-deco { display: none; }
+    }
+    @media (max-width: 480px) {
+      .nav-links { gap: 12px; }
+      .nav-links button { font-size: 7.5px; letter-spacing: 0.1em; }
+      .nav-logo-name { font-size: 9px; letter-spacing: 0.18em; }
     }
   </style>
 </head>
@@ -438,71 +389,54 @@
     /* ─────────── DATA ─────────── */
     const PROJECTS = {
       series: [
-        { id: 1, title: 'Déconnecté',   format: '6 × 52 min', status: 'En développement' },
-        { id: 2, title: 'Respawn',       format: '6 × 52 min', status: 'En développement' },
-        { id: 6, title: 'Édith Meunier', format: '6 × 28 min', status: 'En développement' },
+        { id: 1, title: 'Déconnecté',    format: '6 × 52 min', status: 'En développement' },
+        { id: 2, title: 'Respawn',        format: '6 × 52 min', status: 'En développement' },
+        { id: 6, title: 'Édith Meunier',  format: '6 × 28 min', status: 'En développement' },
       ],
       docs: [
-        { id: 3, title: "L'ADN Fantôme",           format: '90 min', status: 'En développement' },
-        { id: 4, title: 'Le Marchand de Soleil', format: '52 min', status: 'En développement' },
+        { id: 3, title: "L'ADN Fantôme",          format: '90 min', status: 'En développement' },
+        { id: 4, title: 'Le Marchand de Soleil',  format: '52 min', status: 'En développement' },
       ],
     };
 
     const CREDITS = [
-      { works: 'Parasite · Le Livre des Solutions',  studio: 'The Jokers Films / Logical Pictures' },
-      { works: 'Sambre · Les Sentinelles',            studio: 'Federation Studios' },
-      { works: 'Merteuil · Jouer avec le feu',       studio: 'Felicita Films / Studio TF1' },
-      { works: 'Les Enfants de Timpelbach · Bardot', studio: 'TimpelPictures' },
+      { studio: 'The Jokers Films / Logical Pictures', works: 'Parasite · Le Livre des Solutions' },
+      { studio: 'Federation Studios',                  works: 'Sambre · Les Sentinelles' },
+      { studio: 'Felicita Films / Studio TF1',         works: 'Merteuil · Jouer avec le feu' },
+      { studio: 'TimpelPictures',                      works: 'Les Enfants de Timpelbach · Bardot' },
     ];
 
     /* ─────────── HERO LOGO ─────────── */
     const HeroLogo = () => {
       const [shown, setShown] = useState(new Set());
-
       useEffect(() => {
-        // E S C A P Ǝ (indices 0–5), then PRODUCTION (6)
         const timings = [700, 850, 1000, 1150, 1300, 1600, 2050];
         timings.forEach((t, i) =>
           setTimeout(() => setShown(p => new Set([...p, i])), t)
         );
       }, []);
-
       const normal = ['E','S','C','A','P'];
-
       return (
         <div style={{ textAlign: 'center' }}>
           <div style={{
             display: 'flex', justifyContent: 'center',
-            fontFamily: "'Raleway', sans-serif",
-            fontWeight: 400,
+            fontFamily: "'Raleway', sans-serif", fontWeight: 400,
             fontSize: 'clamp(48px, 8vw, 112px)',
             letterSpacing: '0.38em', lineHeight: 1,
           }}>
             {normal.map((l, i) => (
-              <span key={i}
-                className={`hero-letter${shown.has(i) ? ' show' : ''}`}>
-                {l}
-              </span>
+              <span key={i} className={`hero-letter${shown.has(i) ? ' show' : ''}`}>{l}</span>
             ))}
-            {/* Reversed E — no trailing letter-spacing so kerning stays even */}
-            <span
-              className={`hero-letter mirror-letter${shown.has(5) ? ' show' : ''}`}
-              style={{ letterSpacing: 0 }}>
-              E
-            </span>
+            <span className={`hero-letter mirror-letter${shown.has(5) ? ' show' : ''}`}
+              style={{ letterSpacing: 0 }}>E</span>
           </div>
           <div style={{
-            fontFamily: "'Raleway', sans-serif",
-            fontWeight: 300,
+            fontFamily: "'Raleway', sans-serif", fontWeight: 300,
             fontSize: 'clamp(9px, 1.1vw, 14px)',
             letterSpacing: '0.65em', textTransform: 'uppercase',
-            color: 'rgba(240,237,232,0.45)',
-            marginTop: 16,
-            opacity: shown.has(6) ? 1 : 0,
-            transition: 'opacity 0.9s ease',
-          }}>
-            Production
-          </div>
+            color: 'rgba(240,237,232,0.45)', marginTop: 16,
+            opacity: shown.has(6) ? 1 : 0, transition: 'opacity 0.9s ease',
+          }}>Production</div>
         </div>
       );
     };
@@ -524,17 +458,13 @@
       return (
         <nav className={scrolled ? 'scrolled' : ''}>
           <div className="nav-logo" onClick={() => setPage('home')}>
-            <span className="nav-logo-name">
-              ESCAP<span className="mir">E</span>
-            </span>
+            <span className="nav-logo-name">ESCAP<span className="mir">E</span></span>
             <span className="nav-logo-sub">PRODUCTION</span>
           </div>
           <ul className="nav-links">
             {links.map(l => (
               <li key={l.id}>
-                <button
-                  className={page === l.id ? 'active' : ''}
-                  onClick={() => setPage(l.id)}>
+                <button className={page === l.id ? 'active' : ''} onClick={() => setPage(l.id)}>
                   {l.label}
                 </button>
               </li>
@@ -548,20 +478,14 @@
     const Page = ({ children }) => {
       const [ready, setReady] = useState(false);
       useEffect(() => { requestAnimationFrame(() => setReady(true)); }, []);
-      return (
-        <div className={`page-wrap${ready ? ' in' : ''}`}>
-          {children}
-        </div>
-      );
+      return <div className={`page-wrap${ready ? ' in' : ''}`}>{children}</div>;
     };
 
     /* ─────────── HOME ─────────── */
     const HomePage = ({ setPage }) => {
       const [scrollShow, setScrollShow] = useState(false);
       const fired = useRef(false);
-
       useEffect(() => { setTimeout(() => setScrollShow(true), 2800); }, []);
-
       useEffect(() => {
         const wipe = document.getElementById('cinematic-wipe');
         const onWheel = (e) => {
@@ -576,16 +500,12 @@
         window.addEventListener('wheel', onWheel, { passive: true });
         return () => window.removeEventListener('wheel', onWheel);
       }, [setPage]);
-
       return (
         <div>
           <div className="hero">
-            <video src="Fond site Escape Production.mp4"
-              autoPlay muted loop playsInline />
+            <video src="Fond site Escape Production.mp4" autoPlay muted loop playsInline />
             <div className="hero-overlay" />
-            <div className="hero-center">
-              <HeroLogo />
-            </div>
+            <div className="hero-center"><HeroLogo /></div>
             <div className={`hero-scroll${scrollShow ? ' show' : ''}`}>
               <span>SCROLL</span>
               <div className="scroll-bar" />
@@ -598,63 +518,34 @@
     /* ─────────── PROJECTS ─────────── */
     const ProjectsPage = () => {
       const [tab, setTab] = useState('series');
-      const [layout, setLayout] = useState('list');
       const list = tab === 'series' ? PROJECTS.series : PROJECTS.docs;
-
       return (
         <Page>
           <div style={{ paddingTop: 108 }}>
             <div className="section">
               <div className="section-tag">Projets en développement</div>
-
               <div className="proj-header">
                 <div className="proj-tabs">
-                  <button className={`proj-tab${tab === 'series' ? ' active' : ''}`}
-                    onClick={() => setTab('series')}>
+                  <button className={`proj-tab${tab === 'series' ? ' active' : ''}`} onClick={() => setTab('series')}>
                     Séries&ensp;—&ensp;{PROJECTS.series.length}
                   </button>
-                  <button className={`proj-tab${tab === 'docs' ? ' active' : ''}`}
-                    onClick={() => setTab('docs')}>
+                  <button className={`proj-tab${tab === 'docs' ? ' active' : ''}`} onClick={() => setTab('docs')}>
                     Documentaires&ensp;—&ensp;{PROJECTS.docs.length}
                   </button>
                 </div>
-                <div className="layout-toggle">
-                  <button className={`layout-btn${layout === 'list' ? ' active' : ''}`}
-                    onClick={() => setLayout('list')}>LISTE</button>
-                  <button className={`layout-btn${layout === 'grid' ? ' active' : ''}`}
-                    onClick={() => setLayout('grid')}>GRILLE</button>
-                </div>
               </div>
-
-              {layout === 'list' ? (
-                <div>
-                  {list.map((p, i) => (
-                    <div key={p.id} className="proj-list-item">
-                      <span className="proj-num">0{i + 1}</span>
-                      <div className="proj-list-title">{p.title}</div>
-                      <div className="proj-list-meta">
-                        {p.format}<br />
-                        <span className="proj-status">{p.status}</span>
-                      </div>
+              <div>
+                {list.map((p, i) => (
+                  <div key={p.id} className="proj-list-item">
+                    <span className="proj-num">0{i + 1}</span>
+                    <div className="proj-list-title">{p.title}</div>
+                    <div className="proj-list-meta">
+                      {p.format}<br />
+                      <span className="proj-status">{p.status}</span>
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="proj-grid">
-                  {list.map(p => (
-                    <div key={p.id} className="proj-card">
-                      <div className="proj-card-bg" />
-                      <div className="proj-card-overlay" />
-                      <div className="proj-card-body">
-                        <div className="proj-card-type">
-                          {tab === 'series' ? 'SÉRIE' : 'DOCUMENTAIRE'}&ensp;·&ensp;{p.format}
-                        </div>
-                        <div className="proj-card-title">{p.title}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+                  </div>
+                ))}
+              </div>
             </div>
             <Footer />
           </div>
@@ -671,9 +562,9 @@
             <div className="about-grid">
               <div>
                 <div className="about-big">
-                  ESCAP<span style={{ display: 'inline-block', transform: 'scaleX(-1)' }}>E</span><br />
-                  <span style={{ display: 'inline-block', transform: 'scaleX(-1)' }}>E</span>SCAPE<br />
-                  <span className="accent-line" style={{ color: 'var(--accent)', fontSize: '0.55em', letterSpacing: '0.12em', fontWeight: 700 }}>PRODUCTION</span>
+                  ESCAP<span style={{ display: 'inline-block', transform: 'scaleX(-1)', color: '#f0ede8' }}>E</span><br />
+                  <span style={{ display: 'inline-block', transform: 'scaleX(-1)', color: '#f0ede8' }}>E</span>SCAPE<br />
+                  <span style={{ color: 'var(--accent)', fontSize: '0.55em', letterSpacing: '0.12em', fontWeight: 700 }}>PRODUCTION</span>
                 </div>
               </div>
               <div>
@@ -705,7 +596,6 @@
       const [sent, setSent] = useState(false);
       const [error, setError] = useState(false);
       const set = k => e => setForm(f => ({ ...f, [k]: e.target.value }));
-
       const handleSubmit = async (e) => {
         e.preventDefault(); setError(false);
         try {
@@ -717,7 +607,6 @@
           if (res.ok) setSent(true); else setError(true);
         } catch { setError(true); }
       };
-
       return (
         <Page>
           <div style={{ paddingTop: 108 }}>
@@ -747,13 +636,12 @@
                       </div>
                       <div className="form-group">
                         <label className="form-label">Message</label>
-                        <textarea className="form-textarea" required style={{ height: 140 }}
+                        <textarea className="form-textarea" required
                           value={form.message} onChange={set('message')} />
                       </div>
                       {error && <p style={{ fontFamily: 'var(--ff-mono)', fontSize: 10, color: 'var(--accent)', letterSpacing: '0.15em', marginBottom: 16 }}>Erreur d'envoi — réessayez</p>}
                       <button type="submit" className="submit-btn">
-                        Envoyer
-                        <span className="submit-arrow">→</span>
+                        Envoyer <span className="submit-arrow">→</span>
                       </button>
                     </form>
                   )}
@@ -770,7 +658,9 @@
     const Footer = () => (
       <footer>
         <span>Escape Production © 2026</span>
-        <span className="footer-e">ESCAP<span style={{ display: 'inline-block', transform: 'scaleX(-1)' }}>E</span></span>
+        <span className="footer-mid" style={{ fontFamily: 'var(--ff-mono)', fontSize: 9, letterSpacing: '0.2em', color: '#383330' }}>
+          ESCAP<span style={{ display: 'inline-block', transform: 'scaleX(-1)', color: '#383330', marginLeft: '-0.05em' }}>E</span>
+        </span>
         <span>Paris, France</span>
       </footer>
     );
@@ -778,12 +668,7 @@
     /* ─────────── APP ─────────── */
     const App = () => {
       const [page, setPage] = useState('home');
-
-      const navigate = (p) => {
-        setPage(p);
-        window.scrollTo({ top: 0, behavior: 'instant' });
-      };
-
+      const navigate = (p) => { setPage(p); window.scrollTo({ top: 0, behavior: 'instant' }); };
       const render = () => {
         switch (page) {
           case 'home':     return <HomePage setPage={navigate} />;
@@ -793,13 +678,7 @@
           default:         return <HomePage setPage={navigate} />;
         }
       };
-
-      return (
-        <>
-          <Nav page={page} setPage={navigate} />
-          {render()}
-        </>
-      );
+      return (<><Nav page={page} setPage={navigate} />{render()}</>);
     };
 
     ReactDOM.createRoot(document.getElementById('root')).render(<App />);
